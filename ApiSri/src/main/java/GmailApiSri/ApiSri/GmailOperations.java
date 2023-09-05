@@ -23,14 +23,6 @@ import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Message;
 
 public class GmailOperations {
-	public static void sendMessage(Gmail service, String userId, MimeMessage email)
-			throws MessagingException, IOException {
-		Message message = createMessageWithEmail(email);
-		message = service.users().messages().send(userId, message).execute();
-
-		System.out.println("Message id: " + message.getId());
-		System.out.println(message.toPrettyString());
-	}
 
 	public static Message createMessageWithEmail(MimeMessage email) throws MessagingException, IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
